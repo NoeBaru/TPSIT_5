@@ -1,3 +1,17 @@
+import math
+
+def eval_ciclo():
+    while True:
+        dato = input('> ')
+        if dato == 'fatto':
+            break
+        else:
+            precDato = dato
+        eval(dato)
+        print(dato)
+    print(dato)
+    print(precDato)
+
 def main():
     """
     Author: Noemi Baruffolo
@@ -18,6 +32,6 @@ def main():
     Deve continuare fino a quando l'utente non scrive 'fatto', e poi restituire il valore dell'ultima
     espressione che ha valutato.
     """
-    pass #non fa niente, così non da errori nel codice
+    eval_ciclo()
 if __name__ == '__main__':
     main()
