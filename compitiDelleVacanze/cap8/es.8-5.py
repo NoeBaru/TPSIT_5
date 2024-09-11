@@ -1,3 +1,14 @@
+def ruota_parola(s, n):
+    parolaRuotata = ""
+    for char in s:
+        if char.isalpha():  #controlla se il carattere è una lettera
+            base = ord('A') if char.isupper() else ord('a')
+            carattereRuotato = chr(((ord(char) - base + n) % 26) + base)
+            parolaRuotata += carattereRuotato
+        else:
+            parolaRuotata += char  #aggiunge il carattere senza modifiche se non è una lettera
+    return parolaRuotata
+
 def main():
     """
     Author: Noemi Baruffolo
@@ -19,8 +30,12 @@ def main():
     Dato che 'c' è la “2-esima” lettera dell'alfabeto. Ma attenzione: i codici numerici delle lettere maiuscole sono diversi.
     Su Internet, talvolta, vengono codificate in ROT13 (un cifrario di Cesare con rotazione 13) delle barzellette potenzialmente
     offensive. Se non siete suscettibili, cercatene qualcuna e decodificatela.
-    Soluzione: http://thinkpython2.com/ ode/ otate.py .
+    Soluzione: http://thinkpython2.com/code/rotate.py .
     """
-    pass #non fa niente, così non da errori nel codice
+    s, n = input("Inserisci una parola e un numero intero separati da uno spazio: ").split()
+    n = int(n)  #converti il secondo elemento in un numero intero
+    parola_ruotata = ruota_parola(s, n)
+    print(f"Parola originale: {s}, Parola ruotata: {parola_ruotata}")
+
 if __name__ == '__main__':
     main()

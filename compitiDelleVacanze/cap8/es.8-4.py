@@ -1,3 +1,34 @@
+def una_minuscola1(s):
+    for c in s: #controlla solo il primo carattere
+        if c.islower():
+            return True
+        else:
+            return False
+
+def una_minuscola2(s):
+    for c in s: #controlla che 'c' sia minuscola (e la è sempre)
+        if 'c'.islower():
+            return 'True' #non sono booleani
+        else:
+            return 'False'
+
+def una_minuscola3(s):
+    for c in s: #controlla l'ultima perché flag viene sovrascritto ogni volta
+        flag = c.islower()
+    return flag
+
+def una_minuscola4(s): #funziona correttamente
+    flag = False
+    for c in s:
+        flag = flag or c.islower()
+    return flag
+
+def una_minuscola5(s): #non controlla se c'è almeno una lettera minuscola, ma solo se tutte le lettere sono minuscole
+    for c in s:
+        if not c.islower():
+            return False
+    return True
+
 def main():
     """
     Author: Noemi Baruffolo
@@ -35,9 +66,13 @@ def main():
         def una_minuscola5(s):
             for c in s:
                 if not c.islower():
-                return False
+                    return False
             return True
     """
-    pass #non fa niente, così non da errori nel codice
+    s = "cIAO"
+    print(una_minuscola1(s))
+    print(una_minuscola2(s))
+    print(una_minuscola3(s))
+    print(una_minuscola4(s))
 if __name__ == '__main__':
     main()

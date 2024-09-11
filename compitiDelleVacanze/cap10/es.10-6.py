@@ -1,3 +1,6 @@
+def anagramma(parola1, parola2):
+    return sorted(parola1) == sorted(parola2)
+
 def main():
     """
     Author: Noemi Baruffolo
@@ -8,6 +11,13 @@ def main():
     che riceva due stringhe e restituisca True se sono anagrammi.
     Potete scaricare le soluzioni degli esercizi seguenti all'indirizzo http://thinkpython2.com/code/list_exercises.py.
     """
-    pass #non fa niente, così non da errori nel codice
+    parola1 = 'roma'
+    parola2 = 'amor'
+    print(f"Le parole '{parola1}' e '{parola2}' sono anagrammi? {anagramma(parola1, parola2)}")
+
+    parola1 = 'ciao'
+    parola2 = 'come'
+    print(f"Le parole '{parola1}' e '{parola2}' sono anagrammi? {anagramma(parola1, parola2)}")
+
 if __name__ == '__main__':
     main()

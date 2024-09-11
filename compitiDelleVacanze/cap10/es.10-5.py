@@ -1,3 +1,6 @@
+def ordinata(lista):
+    return lista == sorted(lista)
+
 def main():
     """
     Author: Noemi Baruffolo
@@ -12,6 +15,10 @@ def main():
         False
     Potete scaricare le soluzioni degli esercizi seguenti all'indirizzo http://thinkpython2.com/code/list_exercises.py.
     """
-    pass #non fa niente, così non da errori nel codice
+    lista1 = [1, 2, 2]
+    lista2 = ['b', 'a']
+    print(f"La lista {lista1} è ordinata? {ordinata(lista1)}")
+    print(f"La lista {lista2} è ordinata? {ordinata(lista2)}")
+
 if __name__ == '__main__':
     main()

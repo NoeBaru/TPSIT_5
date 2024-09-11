@@ -1,3 +1,6 @@
+def mediani(lista):
+    return lista[1:-1] if len(lista) > 2 else []
+
 def main():
     """
     Author: Noemi Baruffolo
@@ -11,6 +14,9 @@ def main():
         [2, 3]
     Potete scaricare le soluzioni degli esercizi seguenti all'indirizzo http://thinkpython2.com/code/list_exercises.py.
     """
-    pass #non fa niente, così non da errori nel codice
+    t = [1, 2, 3, 4]
+    risultato = mediani(t)
+    print(f"Gli elementi mediani della lista sono: {risultato}")
+
 if __name__ == '__main__':
     main()

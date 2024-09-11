@@ -1,3 +1,13 @@
+def ha_duplicati(lista):
+    seen = {}  #dizionario per tenere traccia degli oggetti già visti
+    
+    for item in lista:
+        if item in seen:
+            return True
+        seen[item] = True
+    
+    return False
+
 def main():
     """
     Author: Noemi Baruffolo
@@ -8,6 +18,12 @@ def main():
     True se ci sono oggetti ripetuti all'interno della lista. Usate un dizionario per scrivere una versione più rapida e semplice di
     ha_duplicati. Soluzione: http://thinkpython2.com/code/has_duplicates.py
     """
-    pass #non fa niente, così non da errori nel codice
+
+    lista_con_duplicati = [1, 2, 3, 4, 2]
+    lista_senza_duplicati = [1, 2, 3, 4, 5]
+    
+    print("Lista con duplicati:", ha_duplicati(lista_con_duplicati)) 
+    print("Lista senza duplicati:", ha_duplicati(lista_senza_duplicati)) 
+
 if __name__ == '__main__':
     main()

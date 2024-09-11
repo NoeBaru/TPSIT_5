@@ -1,3 +1,11 @@
+def somma_cumulata(lista):
+    somma = 0
+    risultato = []
+    for numero in lista:
+        somma += numero
+        risultato.append(somma)
+    return risultato
+
 def main():
     """
     Author: Noemi Baruffolo
@@ -11,6 +19,9 @@ def main():
         [1, 3, 6]
     Potete scaricare le soluzioni degli esercizi seguenti all'indirizzo http://thinkpython2.com/code/list_exercises.py.
     """
-    pass #non fa niente, così non da errori nel codice
+    t = [1, 2, 3]
+    risultato = somma_cumulata(t)
+    print(f"La somma cumulata è: {risultato}")
+
 if __name__ == '__main__':
     main()

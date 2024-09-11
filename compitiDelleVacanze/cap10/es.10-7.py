@@ -1,3 +1,6 @@
+def ha_duplicati(lista):
+    return len(lista) != len(set(lista))
+
 def main():
     """
     Author: Noemi Baruffolo
@@ -8,6 +11,10 @@ def main():
     volta. Non deve modificare la lista di origine.
     Potete scaricare le soluzioni degli esercizi seguenti all'indirizzo http://thinkpython2.com/code/list_exercises.py.
     """
-    pass #non fa niente, così non da errori nel codice
+    lista1 = [1, 2, 3, 4]
+    lista2 = [1, 2, 2, 4]
+    print(f"La lista {lista1} ha duplicati? {ha_duplicati(lista1)}")
+    print(f"La lista {lista2} ha duplicati? {ha_duplicati(lista2)}")
+
 if __name__ == '__main__':
     main()

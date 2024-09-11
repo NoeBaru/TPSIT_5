@@ -1,3 +1,8 @@
+def tronca(lista):
+    if len(lista) > 2:
+        del lista[0]
+        del lista[-1]
+
 def main():
     """
     Author: Noemi Baruffolo
@@ -12,6 +17,10 @@ def main():
         [2, 3]
     Potete scaricare le soluzioni degli esercizi seguenti all'indirizzo http://thinkpython2.com/code/list_exercises.py.
     """
-    pass #non fa niente, così non da errori nel codice
+    t = [1, 2, 3, 4]
+    print(f"Lista originale: {t}")
+    tronca(t)
+    print(f"Lista dopo tronca(): {t}")
+
 if __name__ == '__main__':
     main()

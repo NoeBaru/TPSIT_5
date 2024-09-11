@@ -1,3 +1,9 @@
+def somma_nidificata(lista_nidificata):
+    somma_totale = 0
+    for sottolista in lista_nidificata:
+        somma_totale += sum(sottolista)
+    return somma_totale
+
 def main():
     """
     Author: Noemi Baruffolo
@@ -11,6 +17,9 @@ def main():
         21
     Potete scaricare le soluzioni degli esercizi seguenti all'indirizzo http://thinkpython2.com/code/list_exercises.py.
     """
-    pass #non fa niente, così non da errori nel codice
+    t = [[1, 2], [3], [4, 5, 6]]
+    risultato = somma_nidificata(t)
+    print(f"La somma degli elementi della lista nidificata è: {risultato}")
+
 if __name__ == '__main__':
     main()
