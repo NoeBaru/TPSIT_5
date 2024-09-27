@@ -1,0 +1,14 @@
+Apro la pagina dell'Ip del router:
+- cerco il codice dell'alphabot
+- trovo l'ip dell'Alphabot
+
+Apro putty:
+- inserisco l'ip dell'alphabot collegato sulla rete uaifai4arob ecc...
+- open
+- accetto
+
+Apro winSCP:
+- inserisco l'ip dell'alphabot
+- username
+- password
+- accedi
