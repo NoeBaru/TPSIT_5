@@ -9,6 +9,6 @@ Apro putty:
 
 Apro winSCP:
 - inserisco l'ip dell'alphabot
-- username
-- password
+- username (pi)
+- password (raspberry)
 - accedi
