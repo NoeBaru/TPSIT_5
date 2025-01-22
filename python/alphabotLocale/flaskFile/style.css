@@ -1,0 +1,64 @@
+body {
+    font-family: roboto, sans-serif; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 650px; 
+    background-color: #DF99F0;
+    text-align: center;
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #343a40; 
+}
+
+input[type="submit"] {
+    font-size: 10px; 
+    padding: 20px 20px;
+    border: none;
+    border-radius: 10px; 
+    cursor: pointer; 
+    color: white;
+    text-transform: uppercase;
+    margin: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100px;
+    height: 100px;
+}
+
+input[value="W"] {
+    background-color: #28a745;
+}
+
+input[value="A"] {
+    background-color: #007bff; 
+}
+
+input[value="S"] {
+    background-color: #ffc107;
+    color: #343a40; 
+}
+
+input[value="D"] {
+    background-color: #6c757d; 
+}
+
+input[value="STOP"] {
+    background-color: #dc3545; 
+}
+
+/*mouse hover*/
+input[type="submit"]:hover {
+    transform: scale(1.1); /*leggero ingrandimento*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /*ombra*/
+}
+
+/*focus*/
+input[type="submit"]:focus {
+    outline: none; /*rimuove il contorno*/
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.75); /*ombra blu*/
+}
