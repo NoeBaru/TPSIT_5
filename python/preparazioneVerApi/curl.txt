@@ -1,0 +1,26 @@
+1. CREATE (POST)
+curl -X POST http://127.0.0.1:5000/studenti -H "Content-Type: application/json" -d "{\"nome\": \"Anna\", \"cognome\": \"Neri\", \"eta\": 20}"
+
+2. READ (GET)
+curl -X GET http://127.0.0.1:5000/studenti
+
+3. HEAD
+curl -I http://127.0.0.1:5000/studenti
+
+4. OPTIONS
+curl -X OPTIONS http://127.0.0.1:5000/studenti
+
+5. UPDATE (PATCH)
+curl -X PATCH http://127.0.0.1:5000/studenti/1 -H "Content-Type: application/json" -d "{\"eta\": 21}"
+
+6. UPDATE (PUT)
+curl -X PUT http://127.0.0.1:5000/studenti/1 -H "Content-Type: application/json" -d "{\"nome\": \"Giulia\", \"cognome\": \"Bianchi\", \"eta\": 22}"
+
+7. DELETE (DELETE)
+curl -X DELETE http://127.0.0.1:5000/studenti/1
+
+8. HEAD
+curl -I http://127.0.0.1:5000/studenti/1
+
+9. OPTIONS
+curl -X OPTIONS http://127.0.0.1:5000/studenti/1

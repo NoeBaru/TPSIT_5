@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Admin</title>
+</head>
+<body>
+    <h1>Area Riservata Admin</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Peso</th>
+                <th>Costo</th>
+                <th>Azioni</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for prodotto in prodotti %}
+            <tr>
+                <td>{{ prodotto.Idprodotto }}</td>
+                <td>{{ prodotto.Nome }}</td>
+                <td>{{ prodotto.Peso }}</td>
+                <td>{{ prodotto.Costo }}</td>
+                <td>
+                    <form action="/elimina/{{ prodotto.Idprodotto }}" method="post" style="display:inline;">
+                        <button type="submit">Elimina</button>
+                    </form>
+                    <form action="/modifica/{{ prodotto.Idprodotto }}" method="post" style="display:inline;">
+                        <input type="number" name="nuovo_costo" placeholder="Nuovo costo" required>
+                        <button type="submit">Modifica</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <h2>Aggiungi Prodotto</h2>
+    <form action="/aggiungi" method="post">
+        <input type="text" name="nome" placeholder="Nome" required>
+        <input type="text" name="peso" placeholder="Peso" required>
+        <input type="number" name="costo" placeholder="Costo" required>
+        <button type="submit">Aggiungi</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+</head>
+<body>
+    <h2>Benvenuto, Utente!</h2>
+    <p>Questa è la pagina per gli utenti normali.</p>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Riservata</title>
+    <script>
+        function showAlert(message) {
+            alert(message);
+        }
+    </script>
+</head>
+<body>
+    <h1>Benvenuto, {{ username }}</h1>
+    <h2>Saldo disponibile: €{{ soldiCaricati }}</h2>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <script>showAlert("{{ message }}");</script>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <h2>Lista Prodotti</h2>
+    <table border="1">
+        <tr>
+            <th>Nome</th>
+            <th>Peso</th>
+            <th>Costo</th>
+            <th>Acquista</th>
+        </tr>
+        {% for prodotto in prodotti %}
+        <tr>
+            <td>{{ prodotto['Nome'] }}</td>
+            <td>{{ prodotto['Peso'] }}</td>
+            <td>€{{ prodotto['Costo'] }}</td>
+            <td>
+                <a href="{{ url_for('compra_prodotto', id_prodotto=prodotto['Idprodotto'], username=username) }}">
+                    <button>COMPRA</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

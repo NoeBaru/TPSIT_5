@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h2>Pannello Admin</h2>
+    <h3>Aggiungi prodotto</h3>
+    <form method="POST" action="/admin/add_product">
+        <input type="text" name="product_id" placeholder="ID" required>
+        <input type="text" name="name" placeholder="Nome" required>
+        <input type="number" step="0.01" name="price" placeholder="Prezzo" required>
+        <input type="number" name="stock" placeholder="Stock" required>
+        <button type="submit">Aggiungi</button>
+    </form>
+    
+    <h3>Prodotti esistenti</h3>
+    <ul>
+        {% for id, product in products.items() %}
+            <li>{{ product.name }} - {{ product.price }}€ - Stock: {{ product.stock }}
+                <form method="POST" action="/admin/remove_product" style="display:inline;">
+                    <input type="hidden" name="product_id" value="{{ id }}">
+                    <button type="submit">Rimuovi</button>
+                </form>
+                <form method="POST" action="/admin/update_stock" style="display:inline;">
+                    <input type="hidden" name="product_id" value="{{ id }}">
+                    <input type="number" name="stock" placeholder="Nuovo stock" required>
+                    <button type="submit">Aggiorna</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/logout">Logout</a>
+</body>
+</html>
