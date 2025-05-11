@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 from flask_restful import Resource, Api
 
 app = Flask(__name__)
-api = Api(app)
+api = Api(app) 
 
 # Dizionario di studenti
 studenti = {
@@ -12,11 +12,11 @@ studenti = {
 }
 
 class Studenti(Resource):
-    def get(self):
+    def get(self): #usata per restituire un dato
         return studenti
    
-    def post(self):
-        dati = request.json
+    def post(self): #usata per aggiungere/inserire dati
+        dati = request.json #prendo i dati del front-end/json/db
        
         nuovo_id = max(studenti.keys(), default=0) + 1
         studenti[nuovo_id] = {
@@ -38,13 +38,13 @@ class Studenti(Resource):
         }
 
 class Studente(Resource):
-    def get(self, id):
+    def get(self, id): #usata per restituire un dato
             studente = studenti.get(id)
             if studente:
                 return studente
             return {"errore": "Studente non trovato"}, 404
 
-    def patch(self, id):
+    def patch(self, id): #usato per aggiornare i dati (come update, ma per una risorsa sola/parziale)
         if id in studenti:
             dati = request.json
             studenti[id].update(dati)
@@ -68,13 +68,13 @@ class Studente(Resource):
         return {"errore": "Studente non trovato"}, 404
            
 
-    def delete(self,id):
+    def delete(self,id): #usata per rimuovere qualche risorsa/dato
         if id in studenti:
             del studenti[id]
             return jsonify({"messaggio": "Studente eliminato"})
         return {"errore": "Studente non trovato"}, 404
    
-    def head(self, id):
+    def head(self, id): #usata come la get, ma restituisce solo i codici, come fosse una sorta di test
         if id in studenti:
             return "", 200
         return "", 404
@@ -87,9 +87,9 @@ class Studente(Resource):
             "Access-Control-Allow-Origin": "*"
         }
 
-
-api.add_resource(Studenti, "/studenti")
-api.add_resource(Studente, "/studenti/<int:id>")
+#per gestire l'end-point
+api.add_resource(Studenti, "/studenti") #localhost:porta/studenti
+api.add_resource(Studente, "/studenti/<int:id>") #localhost:porta/studenti/1
 
 if __name__ == "__main__":
    
@@ -103,12 +103,12 @@ if __name__ == "__main__":
     Quando tu ritorni un dizionario Python, ci pensa lui a:
     convertirlo in JSON con json.dumps(...)
     impostare l'header Content-Type: application/json
-    creare l’oggetto Response
+    creare l'oggetto Response
 """
 """
     POST → Crea una nuova risorsa
         Usi POST quando inserisci un nuovo studente.
-        Non conosci a priori l’ID (viene generato dal server).
+        Non conosci a priori l'ID (viene generato dal server).
         È non idempotente: se invii due volte lo stesso POST, crea due risorse.
 """
 
@@ -155,3 +155,4 @@ if __name__ == "__main__":
         Quando usarlo   Per capire come interagire con una risorsa (utile per CORS)
         È sicuro
         È idempotente
+"""
